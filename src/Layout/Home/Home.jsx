@@ -15,7 +15,7 @@ class Home extends Component {
 
   async componentDidMount() {
     try {
-      const students = await axios("/api/students/");
+      const students = await axios("https://sofia-app-backend.herokuapp.com/api/students/");
       console.log('students', students);
       this.setState({ data: students.data });
     } catch (err) {
