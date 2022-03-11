@@ -3,7 +3,7 @@ import './Student.css';
 import { Link } from 'react-router-dom';
 
 
-const Student = ({ _id, idS, name, resumeref, functionName, yearsofexp, availability, date, skills }) => {
+const Student = ({ _id, idS, name, resumeref, functionName, yearsofexp, availability, date, skills, removeStudent  }) => {
 
   return (
     <tr>
@@ -15,14 +15,13 @@ const Student = ({ _id, idS, name, resumeref, functionName, yearsofexp, availabi
       <td>{availability}</td>
       <td>{date}</td>
       <td>{skills}</td>
-
       
-      {/* <td>
+      <td>
         <button onClick={() => removeStudent(_id)} className="Action-Button fa fa-trash"></button>
         <Link to={{ pathname: '/edit', search: _id }}>
           <button className="Action-Button fa fa-pencil"></button>
         </Link>
-      </td> */}
+      </td>
 
     </tr>
   );

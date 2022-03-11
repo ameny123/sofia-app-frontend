@@ -23,15 +23,15 @@ class Home extends Component {
     }
   }
 
-  // removeStudent = async id => {
-  //   try {
-  //     // const studentRemoved = await axios.delete(`/api/students/${id}`);
-  //     const students = await axios("/api/students/");
-  //     this.setState({ data: students.data });
-  //   } catch (err) {
-  //     this.setState({ error: err.message });
-  //   }
-  // };
+  removeStudent = async id => {
+    try {
+      const studentRemoved = await axios.delete(`http://localhost:5000/api/students/${id}`);
+      const students = await axios("http://localhost:5000/api/students");
+      this.setState({ data: students.data });
+    } catch (err) {
+      this.setState({ error: err.message });
+    }
+  };
 
   //search based on the name
   searchStudents = async username => {
@@ -63,7 +63,7 @@ class Home extends Component {
       students =
         this.state.data.students &&
         this.state.data.students.map(student => (
-          <Student key={student._id} {...student} />
+          <Student key={student._id} {...student} removeStudent={this.removeStudent} />
         ));
     else return <div className="Spinner-Wrapper"> <PropagateLoader color={'#333'} /> </div>;
 
@@ -91,6 +91,7 @@ class Home extends Component {
                   <th>Availability in days</th>
                   <th>Date</th>
                   <th>Skills</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>{students}</tbody>
