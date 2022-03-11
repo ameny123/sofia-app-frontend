@@ -141,7 +141,7 @@ class EditStudent extends Component {
             ref="dateS"
             className="Edit-Student-Input"
             onChange={this.onChangeHandler}
-            value={new Date(this.state.dateS)}
+            value={this.state.date}
             required
             id="dateS"
           />
