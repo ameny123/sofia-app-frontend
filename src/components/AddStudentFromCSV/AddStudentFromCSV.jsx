@@ -21,7 +21,7 @@ class AddStudents extends Component {
   addStudents = async e => {
     e.preventDefault();
     try {
-      const newStudent = await axios.post("/api/students/", {
+      const newStudent = await axios.post("http://localhost:5000/api/students", {
         file: this.refs.file.value,
       }
       );

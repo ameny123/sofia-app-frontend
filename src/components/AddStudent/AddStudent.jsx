@@ -23,7 +23,7 @@ class AddStudent extends Component {
     e.preventDefault();
     console.log('e', e)
     try {
-      const newStudent = await axios.post("/api/students/", {
+      const newStudent = await axios.post("http://localhost:5000/api/students", {
         idS: this.refs.idS.value,
         name: this.refs.name.value,
         resumeref: this.refs.resumeref.value,
@@ -32,7 +32,7 @@ class AddStudent extends Component {
         availability: this.refs.availability.value,
         dateS: this.refs.dateS.value,
         skills: this.refs.skills.value,
-        resume: this.refs.resume.value
+        // resume: this.refs.resume.value
       }
       );
       console.log('newStudent', newStudent);
@@ -46,7 +46,7 @@ class AddStudent extends Component {
   render() {
     return (
       <div className="AddStudent-Wrapper">
-        <h1>Add Student:</h1>
+        <h1>Add:</h1>
         <form onSubmit={this.addStudent}>
           <label htmlFor="idS">ID:</label>
           <input
@@ -97,7 +97,6 @@ class AddStudent extends Component {
             type="number"
             placeholder="0 to 10"
             name="yearsofexp"
-
             ref="yearsofexp"
             className="Add-Student-Input"
             required
@@ -121,7 +120,6 @@ class AddStudent extends Component {
             type="date"
             placeholder="0 to 120"
             name="dateS"
-
             ref="dateS"
             className="Add-Student-Input"
             required
@@ -140,7 +138,7 @@ class AddStudent extends Component {
             id="skills"
           />
 
-          <label htmlFor="resume">Resume: </label>
+          {/* <label htmlFor="resume">Resume: </label>
           <input
             type="file"
             placeholder="upload resume"
@@ -149,7 +147,7 @@ class AddStudent extends Component {
             className="Add-Student-Input"
             required
             id="resume"
-          />
+          /> */}
 
           <button type="submit" className="Add-Student-Submit fa fa-plus"></button>
           <button type="reset" className="Add-Student-Reset fa fa-refresh"></button>

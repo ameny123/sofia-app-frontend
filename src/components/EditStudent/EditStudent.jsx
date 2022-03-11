@@ -19,7 +19,7 @@ class EditStudent extends Component {
     try {
     let search =  this.props.location.search,
       id = search.substring(1, search.length);
-    const updateStudent = await axios(`/api/students/${id}`);
+    const updateStudent = await axios(`http://localhost:5000/api/students${id}`);
     const { name, email, enrollnumber } = updateStudent.data.student;
     this.setState({ id, name, email, enrollnumber  });
     } catch (err) {
